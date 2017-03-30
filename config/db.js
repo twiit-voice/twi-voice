@@ -3,10 +3,10 @@ var mongoose = require( 'mongoose' );
 require('dotenv').config()
 
 // // BRING IN YOUR SCHEMAS & MODELS // For example
-// require('../models/book');  // schema
+require('../models/user');  // schema
 
 // Build the connection string
-var dbURI = `mongodb://localhost/${process.env.DATABASE_NAME}`;
+var dbURI = `mongodb://localhost/tweet`;
 
 // Create the database connection
 mongoose.connect(dbURI);

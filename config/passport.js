@@ -4,8 +4,8 @@ var User = require('../models/user')
 module.exports = function (passport) {
 
   passport.use(new Strategy({
-    consumerKey: 'RBwuCB1cFYa0JhM5OX5oh9vYL',
-    consumerSecret: 'URVA2zJqBSbUcGx4SNnBtrIfQNvXhsGf43F6Ovrg3Qv0XjxYeU',
+    consumerKey: '',
+    consumerSecret: '',
     callbackURL: 'http://localhost:3000/login/twitter/return'
     },
     function(token, tokenSecret, profile, cb) {

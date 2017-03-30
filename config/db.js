@@ -2,9 +2,6 @@
 var mongoose = require( 'mongoose' );
 require('dotenv').config()
 
-// // BRING IN YOUR SCHEMAS & MODELS // For example
-require('../models/user');  // schema
-
 // Build the connection string
 var dbURI = `mongodb://localhost/tweet`;
 

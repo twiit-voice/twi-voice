@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport')
 
-
-
 router.get('/login/twitter', passport.authenticate('twitter'));
 
 router.get('/login/twitter/return',

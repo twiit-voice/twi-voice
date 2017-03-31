@@ -17,6 +17,8 @@ module.exports = function (passport) {
             return cb(null,user)
           }else{
             User.create({
+              'user_token' : token,
+              'user_token_secret' : tokenSecret,
               'id_twitter' : profile.id,
               'username' : profile.username,
               'name' : profile.displayName

@@ -20,11 +20,14 @@ methods.tweets = function(req, res, next) {
 
   helper.recordNext(function() {
     helper.voiceRecognize(function(status) {
+
       if (status) {
         oauth.post(
           `https://api.twitter.com/1.1/statuses/update.json`,
-          process.env.TWITTER_ACCESS_TOKEN,
-          process.env.TWITTER_ACCESS_TOKEN_SECRET,
+          req.user_token,
+          req.user_token_secret,
+          // process.env.TWITTER_ACCESS_TOKEN,
+          // process.env.TWITTER_ACCESS_TOKEN_SECRET,
           { "status": status },
           function(e, data) {
             if (e) console.error(e);

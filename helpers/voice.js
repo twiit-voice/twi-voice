@@ -4,19 +4,24 @@ const fs = require('fs')
 const record = require('node-record-lpcm16')
 const Speech = require('@google-cloud/speech')
 const speech = Speech()
+
 // setting
 const audiofile = './resources/rec.wav'
 const encoding = 'LINEAR16'
 const sampleRate = 44100
+const verbose = true // true -- for log info to the console
 const long = 10000
+const languageCode = 'id-ID' // defaults en-US
 
 module.exports = {
+
+  // record with no callback
   record: function() {
 
     let file = fs.createWriteStream(audiofile, { encoding: 'binary' })
     record.start({
       sampleRate : sampleRate,
-      verbose : false // true -- for log info to the console
+      verbose : verbose
     })
     .pipe(file)
 
@@ -26,31 +31,36 @@ module.exports = {
 
   }, // record
 
+  // record with callback
   recordNext: function(next) {
 
     let file = fs.createWriteStream(audiofile, { encoding: 'binary' })
     record.start({
       sampleRate : sampleRate,
-      verbose : false
+      verbose : verbose
     })
     .pipe(file)
+    .on('close', function() {
+      record.stop()
+      next()
+    })
 
     setTimeout(function () {
       record.stop()
-      next()
     }, long)
 
   }, // recordNext
 
+  // return string what user speech
   voiceRecognize: function(next) {
-
     let request = {
-      encoding: 'LINEAR16',
+      encoding: encoding,
+      languageCode: languageCode,
       sampleRate: sampleRate
     };
     speech.recognize(audiofile, request)
       .then((results) => {
-        const transcription = results[0]
+        const transcription = results[0] // string type
         next(transcription) // callback
       });
 

@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootswatch: Cerulean</title>
+    <title>Twi Voice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
@@ -36,7 +36,7 @@
                     <img src="<%= status.user.profile_image_url_https %>" alt="">
                   </div>
                   <div class="col-md-10">
-                    <h5 class="list-group-item-heading"><b><%= status.user.name %></b> <span style="color: #657786;">@<%= status.user.screen_name %></span> <%= status.created_at %></h5>
+                    <h5 class="list-group-item-heading"><b><%= status.user.name %></b> <span style="color: #657786;">@<%= status.user.screen_name %>  <%= helper.formatDate1(status.created_at) %></span></h5>
                     <p style="font-size: 20px;" class="list-group-item-text"><%= status.text %></p>
                   </div>
                 </div>

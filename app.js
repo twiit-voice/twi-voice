@@ -32,6 +32,7 @@ require('./config/passport')(passport)
 app.use(morgan('dev'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.locals.helper = require('./helpers/util'); // added michael
 
 app.use('/api', index)
 app.use('/api/users', users)

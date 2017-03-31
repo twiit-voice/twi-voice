@@ -6,6 +6,7 @@ let methods = {}
 
 methods.loginTwitter = function (req, res, next) {
   let data = {
+    id : req.user._id,
     username : req.user.username,
     name : req.user.name
   }

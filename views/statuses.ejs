@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootswatch: Cerulean</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" style="position: fixed; right: 0; left:0; z-index:10;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Twi Voice</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/statuses">Tweets</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="list-group" style="margin-top: 90px;">
+
+            <% statusdata.forEach(status => { %>
+              <a href="#" class="list-group-item">
+                <div class="row">
+                  <div class="col-md-1" style="margin-right: 20px;">
+                    <img src="<%= status.user.profile_image_url_https %>" alt="">
+                  </div>
+                  <div class="col-md-10">
+                    <h5 class="list-group-item-heading"><b><%= status.user.name %></b> <span style="color: #657786;">@<%= status.user.screen_name %></span> <%= status.created_at %></h5>
+                    <p style="font-size: 20px;" class="list-group-item-text"><%= status.text %></p>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                  <div class="col-md-1" style="margin-right: 20px;">
+                  </div>
+                  <div class="col-md-10">
+                    <span class="glyphicon glyphicon-share-alt flipped" style="margin-right: 20px;"></span>
+                    <span class="glyphicon glyphicon-retweet" style="margin-right: 20px;"></span>
+                    <span class="glyphicon glyphicon-heart" style="margin-right: 20px;"></span>
+                  </div>
+                </div>
+              </a>
+            <% }) %>
+
+          </div>
+        </div>
+        <div class="col-md-4" style="position: fixed; top:90px; right:0;">
+          <img src="http://www.organikseo.com/blog/wp-content/uploads/2012/08/twitter-bird-with-megaphone-e1286970491210.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

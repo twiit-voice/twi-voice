@@ -14,4 +14,16 @@ methods.loginTwitter = function (req, res, next) {
   res.json(token)
 }
 
+methods.verify = function(req, res, next){
+  if (!req.headers.token) {
+    res.json("you don't have access")
+  }else{
+    if (jwt.verify(req.headers.token, process.env.SECRETE_FOR_JWT)) {
+      next()
+    }else {
+      res.json("token was expired")
+    }
+  }
+}
+
 module.exports = methods

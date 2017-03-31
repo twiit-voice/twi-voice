@@ -6,6 +6,7 @@ var Strategy = require('passport-twitter').Strategy;
 var app = express()
 var index = require('./routes/index');
 var users = require('./routes/users');
+var record = require('./routes/record');
 
 passport.serializeUser(function(user, cb) {
   cb(null, user);
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api', index)
 app.use('/api/users', users)
+app.use('/api/record_tweet', record)
 
 app.listen(3000, function () {
   console.log('app listening on port 3000!');

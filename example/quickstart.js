@@ -12,7 +12,7 @@ const speechClient = Speech({
 });
 
 // The name of the audio file to transcribe
-const fileName = './resources/audio.raw';
+const fileName = './example/resources/test.wav';
 // const fileName = 'test.wav';
 
 // The audio file's encoding and sample rate

@@ -1,5 +1,4 @@
 var express = require('express');
-var app = express.Router()
 var User = require('../models/user')
 let methods = {}
 
